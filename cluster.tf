@@ -25,10 +25,10 @@ resource "aws_eks_cluster" "cluster" {
     endpoint_public_access  = false
   }
   encryption_config {
-  provider {
-      key_arn =  aws_kms_key.key.arn
-      }
-  resources =  ["secrets"]
+    provider {
+      key_arn = aws_kms_key.key.arn
+    }
+    resources = ["secrets"]
   }
 
   depends_on = [
