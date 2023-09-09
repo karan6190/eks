@@ -1,7 +1,7 @@
 ## Designing Custom Policy
 resource "aws_iam_policy" "k8s_policy" {
-  name        = "${var.node_group_name}-${data.aws_caller_identity.account.account_id}-${var.env}-k8s-policy"
-  description = "${var.node_group_name}-${data.aws_caller_identity.account.account_id}-${var.env}-policy"
+  name        = "${var.CLUSTER_NAME}-${var.ENV}-${var.AIRPORT_CODE[var.AWS_REGION]}-eks-cluster-default-nodegroup-${var.NODE_GROUP_NAME}-k8s-policy"
+  description = "${var.CLUSTER_NAME}-${var.ENV}-${var.AIRPORT_CODE[var.AWS_REGION]}-k8s-nodegroup-${var.NODE_GROUP_NAME}-policy"
   policy      = <<EOF
 {
     "Version": "2012-10-17",
