@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   terraform:
@@ -17,6 +20,9 @@ jobs:
       uses: hashicorp/setup-terraform@v1
       with:
         terraform_version: 1.5.6 # Change this to your desired Terraform version
+
+    - name: Change to Terraform directory
+      run: cd provisioning/dev/cluster
 
     - name: Initialize Terraform
       run: terraform init
