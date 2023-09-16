@@ -71,3 +71,8 @@ IAM_POLICY | [policy.json](provisioning/dev/cluster/policy.json) | yes |
 labels | stack=infra | labeling the worker node | yes |
 
 > Once provisioned successfully - aws eks update-kubeconfig --name <Cluster_Name> --region <AWS_REGION> --profile <AWSCLI_PROFILE_NAME>
+
+#### TO-DO
+
+* Fargate-profile
+
