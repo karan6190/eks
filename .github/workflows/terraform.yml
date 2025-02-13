@@ -1,4 +1,4 @@
-name: Terraform Test
+name: Validating terraform
 
 on:
   push:
@@ -21,11 +21,8 @@ jobs:
       with:
         terraform_version: 1.5.6 # Change this to your desired Terraform version
 
-    - name: Change to Terraform directory
-      run: cd provisioning/dev/cluster
-
     - name: Initialize Terraform
-      run: terraform init
+      run: cd provisioning/dev/cluster && terraform init
 
     - name: Validate Terraform Configuration
-      run: terraform validate
+      run: cd provisioning/dev/cluster && terraform validate
