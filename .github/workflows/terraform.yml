@@ -23,7 +23,7 @@ jobs:
       with:
         terraform_version: 1.5.6 # Change this to your desired Terraform version
     - name: setting up aws config
-      run: export ${{secret.AWS_ACCESS_ID}}
+      run: export ${{secrets.AWS_ACCESS_ID}}
 
     - name: Initialize Terraform
       run: cd provisioning/dev/cluster && terraform init
