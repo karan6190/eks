@@ -9,8 +9,10 @@ on:
       - main
 
 jobs:
-  terraform:
+  terraform-init:
+    name: terraform-init
     runs-on: ubuntu-latest
+    #environment: dev
 
     steps:
     - name: Checkout code
@@ -22,7 +24,34 @@ jobs:
         terraform_version: 1.5.6 # Change this to your desired Terraform version
 
     - name: Initialize Terraform
+<<<<<<< HEAD
       run: cd provisioning/dev/cluster && terraform init
 
     - name: Validate Terraform Configuration
       run: cd provisioning/dev/cluster && terraform validate
+=======
+      run: terraform init
+  terraform-validate:
+    name: terraform-validate
+    runs-on: ubuntu-latest
+    needs: terraform-init
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Terraform
+      uses: hashicorp/setup-terraform@v1
+      with:
+        terraform_version: 1.5.6 # Change this to your desired Terraform version
+
+    - name: Change to Terraform directory
+      run: cd provisioning/dev/cluster
+
+    - name: Initialize Terraform
+      run: terraform init
+    
+    - name: terraform validate
+      run: terraform validate
+
+>>>>>>> eabe6a9 (updated ci-cd)
