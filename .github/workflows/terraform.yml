@@ -22,8 +22,9 @@ jobs:
       uses: hashicorp/setup-terraform@v1
       with:
         terraform_version: 1.5.6 # Change this to your desired Terraform version
+
     - name: setting up aws config
-      run: export ${{secrets.AWS_ACCESS_ID}}
+      run: echo "AWS_ACCESS_ID=${{ secrets.AWS_ACCESS_ID }}" >> $GITHUB_ENV
 
     - name: Initialize Terraform
       run: cd provisioning/dev/cluster && terraform init
