@@ -24,13 +24,8 @@ jobs:
         terraform_version: 1.5.6 # Change this to your desired Terraform version
 
     - name: Initialize Terraform
-<<<<<<< HEAD
       run: cd provisioning/dev/cluster && terraform init
 
-    - name: Validate Terraform Configuration
-      run: cd provisioning/dev/cluster && terraform validate
-=======
-      run: terraform init
   terraform-validate:
     name: terraform-validate
     runs-on: ubuntu-latest
@@ -53,5 +48,3 @@ jobs:
     
     - name: terraform validate
       run: terraform validate
-
->>>>>>> eabe6a9 (updated ci-cd)
